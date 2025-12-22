@@ -5,13 +5,236 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>VF5 REVO Pro - Frame Data & Counter System</title>
 </head>
 
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+  <!-- Main Menu -->
+  <div id="main-menu" class="screen active">
+    <div class="vf-logo">
+      <h1>VIRTUA FIGHTER 5 REVO</h1>
+      <p class="subtitle">Professional Training System</p>
+    </div>
+    <nav class="main-nav">
+      <button class="menu-btn" onclick="showScreen('frame-data')">
+        <span class="icon">📊</span>
+        <span>Frame Data</span>
+      </button>
+      <button class="menu-btn" onclick="showScreen('counter-system')">
+        <span class="icon">🥊</span>
+        <span>Attack Counters</span>
+      </button>
+      <button class="menu-btn" onclick="showScreen('character-select')">
+        <span class="icon">👤</span>
+        <span>Character Guide</span>
+      </button>
+      <button class="menu-btn" onclick="showScreen('combos')">
+        <span class="icon">⚡</span>
+        <span>Combos & Strategies</span>
+      </button>
+      <button class="menu-btn" onclick="showScreen('matchups')">
+        <span class="icon">⚔️</span>
+        <span>Match-ups</span>
+      </button>
+      <button class="menu-btn" onclick="showScreen('game-versions')">
+        <span class="icon">🎮</span>
+        <span>Game Versions</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Frame Data Screen -->
+  <div id="frame-data" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Frame Data Database</h2>
+    </div>
+    <div class="content">
+      <div class="character-selector">
+        <label>Select Character:</label>
+        <select id="frame-character-select" onchange="loadFrameData()">
+          <option value="">Choose a character...</option>
+        </select>
+      </div>
+      <div id="frame-data-display" class="data-table">
+        <p class="help-text">Select a character to view their frame data</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Counter System Screen -->
+  <div id="counter-system" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Attack Counter System</h2>
+    </div>
+    <div class="content">
+      <div class="counter-selector">
+        <div class="selector-group">
+          <label>Your Character:</label>
+          <select id="counter-your-char" onchange="loadCounterData()">
+            <option value="">Choose...</option>
+          </select>
+        </div>
+        <div class="selector-group">
+          <label>Opponent Move Type:</label>
+          <select id="opponent-move-type" onchange="loadCounterData()">
+            <option value="">Choose...</option>
+            <option value="high">High Attacks</option>
+            <option value="mid">Mid Attacks</option>
+            <option value="low">Low Attacks</option>
+            <option value="throw">Throws</option>
+            <option value="special">Special Moves</option>
+          </select>
+        </div>
+      </div>
+      <div id="counter-data-display" class="counter-grid">
+        <p class="help-text">Select your character and opponent move type to see best counters and punishes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Character Select Screen -->
+  <div id="character-select" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Character Guide</h2>
+    </div>
+    <div class="content">
+      <div id="character-grid" class="character-grid"></div>
+      <div id="character-details" class="character-details hidden">
+        <h3 id="char-name"></h3>
+        <div class="char-stats">
+          <div class="stat-item">
+            <span class="stat-label">Fighting Style:</span>
+            <span id="char-style"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Difficulty:</span>
+            <span id="char-difficulty"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Speed:</span>
+            <span id="char-speed"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Power:</span>
+            <span id="char-power"></span>
+          </div>
+        </div>
+        <div class="char-description">
+          <h4>Overview</h4>
+          <p id="char-desc"></p>
+        </div>
+        <div class="char-strengths">
+          <h4>Key Strengths</h4>
+          <ul id="char-strengths-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Combos Screen -->
+  <div id="combos" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Combos & Strategies</h2>
+    </div>
+    <div class="content">
+      <div class="character-selector">
+        <label>Select Character:</label>
+        <select id="combo-character-select" onchange="loadCombos()">
+          <option value="">Choose a character...</option>
+        </select>
+      </div>
+      <div id="combo-display" class="combo-list">
+        <p class="help-text">Select a character to view optimal combos and strategies</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Match-ups Screen -->
+  <div id="matchups" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Match-up Chart</h2>
+    </div>
+    <div class="content">
+      <div id="matchup-chart" class="matchup-chart">
+        <p class="help-text">Character match-up advantages and disadvantages</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Versions Screen -->
+  <div id="game-versions" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('main-menu')">← Back</button>
+      <h2>Game Versions & History</h2>
+    </div>
+    <div class="content">
+      <div class="version-list">
+        <div class="version-card">
+          <h3>Virtua Fighter 5 REVO (2024)</h3>
+          <p class="version-platform">PC, PlayStation, Xbox</p>
+          <p>Latest version featuring updated balance, new training modes, and enhanced online play.</p>
+          <div class="version-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Rollback netcode for online matches</li>
+              <li>Updated frame data and balance changes</li>
+              <li>New training mode features</li>
+              <li>Enhanced graphics and effects</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card">
+          <h3>Virtua Fighter 5 Ultimate Showdown (2021)</h3>
+          <p class="version-platform">PlayStation 4, PlayStation 5</p>
+          <p>HD remaster with modern graphics and online improvements.</p>
+          <div class="version-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Rebuilt on Dragon Engine</li>
+              <li>16 player lobbies</li>
+              <li>Spectator mode</li>
+              <li>Updated UI and menus</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card">
+          <h3>Virtua Fighter 5 Final Showdown (2012)</h3>
+          <p class="version-platform">Arcade, Xbox 360, PlayStation 3</p>
+          <p>Arcade version with refined gameplay and balance.</p>
+          <div class="version-features">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Jean Kujo added to roster</li>
+              <li>New moves for all characters</li>
+              <li>Refined throw system</li>
+              <li>Tournament standard version</li>
+            </ul>
+          </div>
+        </div>
+        <div class="version-card">
+          <h3>Virtua Fighter 5 R (2008)</h3>
+          <p class="version-platform">Arcade</p>
+          <p>Arcade revision with balance updates.</p>
+        </div>
+        <div class="version-card">
+          <h3>Virtua Fighter 5 (2006)</h3>
+          <p class="version-platform">Arcade, Xbox 360, PlayStation 3</p>
+          <p>Original VF5 release introducing new characters El Blaze and Eileen.</p>
+        </div>
+        <div class="version-note">
+          <h4>📝 Note on Emulation</h4>
+          <p>While older arcade versions (VF5, VF5R) can be emulated using arcade system emulators, please ensure you own legitimate copies and comply with copyright laws in your region. For the best experience, we recommend playing official releases available on modern platforms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
