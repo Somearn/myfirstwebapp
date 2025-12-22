@@ -5,13 +5,366 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>Virtua Fighter 5 REVO - Pro Gamer Companion</title>
 </head>
 
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
+  <header>
+    <div class="header-content">
+      <h1>VIRTUA FIGHTER 5 REVO</h1>
+      <p class="subtitle">Pro Gamer Companion App</p>
+    </div>
+  </header>
+
+  <nav id="main-nav">
+    <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+    <button class="nav-btn" data-view="frame-data">Frame Data</button>
+    <button class="nav-btn" data-view="punishment">Punishment Guide</button>
+    <button class="nav-btn" data-view="combos">Combos & Strategies</button>
+    <button class="nav-btn" data-view="matchups">Match-Ups</button>
+    <button class="nav-btn" data-view="training">Training Mode</button>
+    <button class="nav-btn" data-view="version-info">Game Info</button>
+  </nav>
+
+  <main id="app-container">
+    <!-- Dashboard View -->
+    <div id="dashboard-view" class="view active">
+      <h2>Welcome to VF5 REVO Companion</h2>
+      <div class="dashboard-grid">
+        <div class="dashboard-card" data-navigate="frame-data">
+          <h3>Frame Data</h3>
+          <p>Access complete frame data for all characters</p>
+        </div>
+        <div class="dashboard-card" data-navigate="punishment">
+          <h3>Punishment Guide</h3>
+          <p>Learn optimal punishes for every situation</p>
+        </div>
+        <div class="dashboard-card" data-navigate="combos">
+          <h3>Combos & Strategies</h3>
+          <p>Master character-specific combos and tactics</p>
+        </div>
+        <div class="dashboard-card" data-navigate="matchups">
+          <h3>Match-Up Charts</h3>
+          <p>Understand character advantages and tier lists</p>
+        </div>
+        <div class="dashboard-card" data-navigate="training">
+          <h3>Training Mode</h3>
+          <p>Practice with frame-perfect simulation</p>
+        </div>
+        <div class="dashboard-card" data-navigate="version-info">
+          <h3>Game Information</h3>
+          <p>Version history and game mechanics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frame Data View -->
+    <div id="frame-data-view" class="view">
+      <h2>Frame Data</h2>
+      <div class="character-select">
+        <label for="frame-character">Select Character:</label>
+        <select id="frame-character">
+          <option value="">Choose a character...</option>
+          <option value="akira">Akira Yuki</option>
+          <option value="pai">Pai Chan</option>
+          <option value="lau">Lau Chan</option>
+          <option value="wolf">Wolf Hawkfield</option>
+          <option value="jeffry">Jeffry McWild</option>
+          <option value="kage">Kage-Maru</option>
+          <option value="sarah">Sarah Bryant</option>
+          <option value="jacky">Jacky Bryant</option>
+          <option value="shun">Shun Di</option>
+          <option value="lion">Lion Rafale</option>
+          <option value="aoi">Aoi Umenokoji</option>
+          <option value="lei">Lei-Fei</option>
+          <option value="vanessa">Vanessa Lewis</option>
+          <option value="brad">Brad Burns</option>
+          <option value="goh">Goh Hinogami</option>
+          <option value="eileen">Eileen</option>
+          <option value="el-blaze">El Blaze</option>
+          <option value="jean">Jean Kujo</option>
+          <option value="taka">Taka-Arashi</option>
+        </select>
+      </div>
+      <div id="frame-data-content">
+        <p class="info-text">Select a character to view their frame data</p>
+      </div>
+    </div>
+
+    <!-- Punishment Guide View -->
+    <div id="punishment-view" class="view">
+      <h2>Attack Counter & Punishment Guide</h2>
+      <div class="punishment-section">
+        <h3>Understanding Punishment Windows</h3>
+        <div class="punishment-info">
+          <p>In VF5 REVO, punishment is crucial. Here's a breakdown of common punishment scenarios:</p>
+          <ul>
+            <li><strong>-10 to -12 frames:</strong> Jab punishment (P or 2P)</li>
+            <li><strong>-13 to -14 frames:</strong> Mid punch combos (PP, 6P+K)</li>
+            <li><strong>-15 to -17 frames:</strong> Strong mids (3P+K, 6P)</li>
+            <li><strong>-18+ frames:</strong> Launcher punishment opportunities</li>
+          </ul>
+        </div>
+        
+        <div class="character-select">
+          <label for="punish-character">Select Your Character:</label>
+          <select id="punish-character">
+            <option value="">Choose a character...</option>
+            <option value="akira">Akira Yuki</option>
+            <option value="pai">Pai Chan</option>
+            <option value="lau">Lau Chan</option>
+            <option value="wolf">Wolf Hawkfield</option>
+            <option value="jeffry">Jeffry McWild</option>
+            <option value="kage">Kage-Maru</option>
+            <option value="sarah">Sarah Bryant</option>
+            <option value="jacky">Jacky Bryant</option>
+            <option value="shun">Shun Di</option>
+            <option value="lion">Lion Rafale</option>
+            <option value="aoi">Aoi Umenokoji</option>
+            <option value="lei">Lei-Fei</option>
+            <option value="vanessa">Vanessa Lewis</option>
+            <option value="brad">Brad Burns</option>
+            <option value="goh">Goh Hinogami</option>
+            <option value="eileen">Eileen</option>
+            <option value="el-blaze">El Blaze</option>
+            <option value="jean">Jean Kujo</option>
+            <option value="taka">Taka-Arashi</option>
+          </select>
+        </div>
+        <div id="punishment-content">
+          <p class="info-text">Select your character to see optimal punishers</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Combos & Strategies View -->
+    <div id="combos-view" class="view">
+      <h2>Combos & Strategy Guides</h2>
+      <div class="character-select">
+        <label for="combo-character">Select Character:</label>
+        <select id="combo-character">
+          <option value="">Choose a character...</option>
+          <option value="akira">Akira Yuki</option>
+          <option value="pai">Pai Chan</option>
+          <option value="lau">Lau Chan</option>
+          <option value="wolf">Wolf Hawkfield</option>
+          <option value="jeffry">Jeffry McWild</option>
+          <option value="kage">Kage-Maru</option>
+          <option value="sarah">Sarah Bryant</option>
+          <option value="jacky">Jacky Bryant</option>
+          <option value="shun">Shun Di</option>
+          <option value="lion">Lion Rafale</option>
+          <option value="aoi">Aoi Umenokoji</option>
+          <option value="lei">Lei-Fei</option>
+          <option value="vanessa">Vanessa Lewis</option>
+          <option value="brad">Brad Burns</option>
+          <option value="goh">Goh Hinogami</option>
+          <option value="eileen">Eileen</option>
+          <option value="el-blaze">El Blaze</option>
+          <option value="jean">Jean Kujo</option>
+          <option value="taka">Taka-Arashi</option>
+        </select>
+      </div>
+      <div id="combo-content">
+        <p class="info-text">Select a character to view combos and strategies</p>
+      </div>
+    </div>
+
+    <!-- Match-Ups View -->
+    <div id="matchups-view" class="view">
+      <h2>Match-Up Charts & Tier Lists</h2>
+      <div class="tier-section">
+        <h3>VF5 REVO Tier List</h3>
+        <div class="tier-list">
+          <div class="tier-row tier-s">
+            <div class="tier-label">S Tier</div>
+            <div class="tier-characters">Akira, Lei-Fei, Wolf</div>
+          </div>
+          <div class="tier-row tier-a">
+            <div class="tier-label">A Tier</div>
+            <div class="tier-characters">Jacky, Sarah, Kage, Lion, Jean</div>
+          </div>
+          <div class="tier-row tier-b">
+            <div class="tier-label">B Tier</div>
+            <div class="tier-characters">Lau, Pai, Vanessa, Goh, Brad, Eileen</div>
+          </div>
+          <div class="tier-row tier-c">
+            <div class="tier-label">C Tier</div>
+            <div class="tier-characters">Jeffry, Shun, Aoi, El Blaze, Taka</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="matchup-section">
+        <h3>Character Match-Up Analysis</h3>
+        <div class="character-select">
+          <label for="matchup-character">Select Your Character:</label>
+          <select id="matchup-character">
+            <option value="">Choose a character...</option>
+            <option value="akira">Akira Yuki</option>
+            <option value="pai">Pai Chan</option>
+            <option value="lau">Lau Chan</option>
+            <option value="wolf">Wolf Hawkfield</option>
+            <option value="jeffry">Jeffry McWild</option>
+            <option value="kage">Kage-Maru</option>
+            <option value="sarah">Sarah Bryant</option>
+            <option value="jacky">Jacky Bryant</option>
+            <option value="shun">Shun Di</option>
+            <option value="lion">Lion Rafale</option>
+            <option value="aoi">Aoi Umenokoji</option>
+            <option value="lei">Lei-Fei</option>
+            <option value="vanessa">Vanessa Lewis</option>
+            <option value="brad">Brad Burns</option>
+            <option value="goh">Goh Hinogami</option>
+            <option value="eileen">Eileen</option>
+            <option value="el-blaze">El Blaze</option>
+            <option value="jean">Jean Kujo</option>
+            <option value="taka">Taka-Arashi</option>
+          </select>
+        </div>
+        <div id="matchup-content">
+          <p class="info-text">Select a character to view match-up analysis</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Training Mode View -->
+    <div id="training-view" class="view">
+      <h2>Training Mode Simulator</h2>
+      <div class="training-section">
+        <h3>Frame Advantage Calculator</h3>
+        <div class="calculator">
+          <div class="calc-input">
+            <label for="move-startup">Move Startup (frames):</label>
+            <input type="number" id="move-startup" min="0" max="30" value="10">
+          </div>
+          <div class="calc-input">
+            <label for="move-recovery">Move Recovery (frames):</label>
+            <input type="number" id="move-recovery" min="0" max="40" value="15">
+          </div>
+          <div class="calc-input">
+            <label for="opponent-recovery">Opponent Recovery (frames):</label>
+            <input type="number" id="opponent-recovery" min="0" max="40" value="12">
+          </div>
+          <button id="calc-advantage" class="calc-btn">Calculate Advantage</button>
+          <div id="advantage-result" class="calc-result"></div>
+        </div>
+
+        <h3>Training Scenarios</h3>
+        <div class="training-scenarios">
+          <div class="scenario-card">
+            <h4>Throw Escapes</h4>
+            <p>Practice your throw escape timing. In VF5 REVO, you have approximately 10 frames to input a throw escape.</p>
+            <ul>
+              <li>P+G: Escapes forward throws</li>
+              <li>P+G (neutral): Escapes neutral throws</li>
+              <li>Direction + P+G: Escapes directional throws</li>
+            </ul>
+          </div>
+          <div class="scenario-card">
+            <h4>Evade Practice</h4>
+            <p>Master the evade system (E button). Successful evades grant massive frame advantage.</p>
+            <ul>
+              <li>Evade high attacks</li>
+              <li>Evade linear moves</li>
+              <li>Counter with evade attacks</li>
+            </ul>
+          </div>
+          <div class="scenario-card">
+            <h4>Defensive Options</h4>
+            <p>Practice your defensive toolkit:</p>
+            <ul>
+              <li>Guard Impact (4P+K+G)</li>
+              <li>Sabaki moves (character-specific)</li>
+              <li>Reversal timing</li>
+              <li>Low punch fuzzy guard</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Info View -->
+    <div id="version-info-view" class="view">
+      <h2>Game Version Information & History</h2>
+      <div class="version-section">
+        <h3>Virtua Fighter 5 REVO (2024)</h3>
+        <p>The latest iteration of the legendary 3D fighting game series, featuring refined mechanics and balance updates.</p>
+        
+        <h3>Game Mechanics Overview</h3>
+        <div class="mechanics-grid">
+          <div class="mechanic-card">
+            <h4>Triangle System</h4>
+            <p>The core of VF's gameplay:</p>
+            <ul>
+              <li>Strikes beat Throws</li>
+              <li>Throws beat Guards</li>
+              <li>Guards beat Strikes</li>
+            </ul>
+          </div>
+          <div class="mechanic-card">
+            <h4>Frame Advantage</h4>
+            <p>Understanding frame data is crucial:</p>
+            <ul>
+              <li>Plus frames = Your turn</li>
+              <li>Minus frames = Opponent's turn</li>
+              <li>Calculate advantage after every move</li>
+            </ul>
+          </div>
+          <div class="mechanic-card">
+            <h4>Stance Types</h4>
+            <p>Different attack heights:</p>
+            <ul>
+              <li>High: Can be ducked</li>
+              <li>Mid: Must be blocked or evaded</li>
+              <li>Low: Must be low blocked</li>
+              <li>Special Mid: Cannot be evaded</li>
+            </ul>
+          </div>
+          <div class="mechanic-card">
+            <h4>Counter Hit System</h4>
+            <p>Hitting during opponent's attack:</p>
+            <ul>
+              <li>Normal counter: +2 frames</li>
+              <li>Major counter: Extended juggle</li>
+              <li>Crumple stun states</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Version History</h3>
+        <div class="version-history">
+          <div class="version-entry">
+            <h4>Virtua Fighter 5 REVO (2024)</h4>
+            <p>Re-release with enhanced graphics, balance updates, and quality of life improvements</p>
+          </div>
+          <div class="version-entry">
+            <h4>Virtua Fighter 5 Ultimate Showdown (2021)</h4>
+            <p>PS4 release with updated visuals and online functionality</p>
+          </div>
+          <div class="version-entry">
+            <h4>Virtua Fighter 5 Final Showdown (2012)</h4>
+            <p>Major balance update with Jean Kujo addition</p>
+          </div>
+          <div class="version-entry">
+            <h4>Virtua Fighter 5 R (2008)</h4>
+            <p>Arcade update with Taka-Arashi and Jean Kujo</p>
+          </div>
+          <div class="version-entry">
+            <h4>Virtua Fighter 5 (2006)</h4>
+            <p>Initial release with El Blaze and Eileen joining the roster</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <footer>
+    <p>&copy; 2024 VF5 REVO Companion App | Fan-made tool for educational purposes</p>
+    <p>Virtua Fighter is property of SEGA</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
