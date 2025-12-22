@@ -428,6 +428,18 @@ calcBtn.addEventListener('click', () => {
   const recovery = parseInt(document.getElementById('move-recovery').value);
   const oppRecovery = parseInt(document.getElementById('opponent-recovery').value);
   
+  // Validate inputs
+  if (isNaN(startup) || isNaN(recovery) || isNaN(oppRecovery) || 
+      startup < 0 || recovery < 0 || oppRecovery < 0) {
+    advantageResult.innerHTML = '<p style="color: #ff4444;">Please enter valid positive numbers for all fields.</p>';
+    return;
+  }
+  
+  // Calculate frame advantage: opponent recovery - your recovery
+  // Note: This is a simplified calculation for educational purposes.
+  // In actual gameplay, frame advantage depends on block/hit advantage
+  // and the specific move properties. This calculator helps understand
+  // the concept of advantage/disadvantage after moves.
   const advantage = oppRecovery - recovery;
   
   let resultClass = advantage > 0 ? 'positive' : advantage < 0 ? 'negative' : 'neutral';
