@@ -180,7 +180,7 @@ const characters = [
     difficulty: '★★★★★',
     speed: '★★★☆☆',
     power: '★★★☆☆',
-    description: 'Defensive specialist with parries and reversals. Punishes opponents\' aggression.',
+    description: 'Defensive specialist with parries and reversals. Punishes opponent aggression.',
     strengths: [
       'Multiple parry options',
       'Strong defensive game',
@@ -364,7 +364,9 @@ const frameData = {
     { move: '2K (Low Kick)', command: '2K', startup: 12, onBlock: -11, onHit: -2, onCH: 0, notes: 'Low poke' },
     { move: '66K (Shoulder Tackle)', command: '66K', startup: 18, onBlock: -10, onHit: 'Knockdown', onCH: 'Knockdown', notes: 'Armored attack' }
   ],
-  // Add more characters as needed - these are examples
+  // NOTE: Frame data is provided for key characters as examples. In a production application,
+  // this would be expanded to include complete move lists for all 18 characters.
+  // Frame data should be verified against official sources and updated for balance patches.
 };
 
 // Counter System Database
@@ -581,7 +583,7 @@ function populateCharacterGrid() {
   characters.forEach(char => {
     const card = document.createElement('div');
     card.className = 'character-card';
-    card.onclick = () => showCharacterDetails(char);
+    card.onclick = (e) => showCharacterDetails(char, e);
     
     card.innerHTML = `
       <div class="character-icon">${char.icon}</div>
@@ -593,14 +595,16 @@ function populateCharacterGrid() {
 }
 
 // Show character details
-function showCharacterDetails(char) {
+function showCharacterDetails(char, event) {
   // Remove selection from all cards
   document.querySelectorAll('.character-card').forEach(card => {
     card.classList.remove('selected');
   });
   
   // Add selection to clicked card
-  event.currentTarget.classList.add('selected');
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('selected');
+  }
   
   // Populate details
   document.getElementById('char-name').textContent = `${char.icon} ${char.name}`;
