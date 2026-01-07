@@ -40,7 +40,6 @@ $colorBorder = [System.Drawing.Color]::FromArgb(100, 150, 255)           # LCARS
 $colorText = [System.Drawing.Color]::FromArgb(200, 220, 255)             # Light blue text
 $colorAccent = [System.Drawing.Color]::FromArgb(150, 200, 255)           # Bright blue accent
 $colorButton = [System.Drawing.Color]::FromArgb(40, 60, 95)              # Button background
-$colorButtonHover = [System.Drawing.Color]::FromArgb(60, 90, 140)        # Button hover
 $colorSuccess = [System.Drawing.Color]::FromArgb(100, 255, 150)          # Success green
 $colorWarning = [System.Drawing.Color]::FromArgb(255, 180, 100)          # Warning amber
 
@@ -435,9 +434,10 @@ $buttonCombine.Add_Click({
             )
         }
         catch {
-            Add-StatusMessage "ERROR: Failed to write output file: $($_.Exception.Message)" "Error"
+            $exportError = "Failed to write output file: $($_.Exception.Message)"
+            Add-StatusMessage "ERROR: $exportError" "Error"
             [System.Windows.Forms.MessageBox]::Show(
-                "Failed to write output file: $($_.Exception.Message)",
+                $exportError,
                 "Export Error",
                 [System.Windows.Forms.MessageBoxButtons]::OK,
                 [System.Windows.Forms.MessageBoxIcon]::Error
@@ -445,13 +445,14 @@ $buttonCombine.Add_Click({
         }
     }
     catch {
+        $generalError = "An error occurred: $($_.Exception.Message)"
         Add-StatusMessage "═══════════════════════════════════════════" "Error"
         Add-StatusMessage "OPERATION FAILED!" "Error"
         Add-StatusMessage "Error: $($_.Exception.Message)" "Error"
         Add-StatusMessage "═══════════════════════════════════════════" "Error"
         
         [System.Windows.Forms.MessageBox]::Show(
-            "An error occurred: $($_.Exception.Message)",
+            $generalError,
             "Error",
             [System.Windows.Forms.MessageBoxButtons]::OK,
             [System.Windows.Forms.MessageBoxIcon]::Error
