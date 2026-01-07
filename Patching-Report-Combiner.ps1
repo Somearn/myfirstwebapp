@@ -17,8 +17,8 @@
 # Security: Set strict mode to catch potential issues
 Set-StrictMode -Version Latest
 
-# Security: Set execution policy scope to process only (no system-wide changes)
-# This is informational - the script doesn't modify execution policy
+# Security: This script respects existing execution policies and makes no system-wide changes
+# If you encounter execution policy errors, use: powershell -ExecutionPolicy Bypass -File "script.ps1"
 
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
