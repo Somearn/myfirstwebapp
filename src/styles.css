@@ -6,16 +6,38 @@ html, body {
   margin: 0;
   border: 0;
   padding: 0;
-  background-color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
 }
 
 main {
   margin: auto;
-  width: 50%;
-  padding: 20px;
+  max-width: 1200px;
+  width: 90%;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 main > h1 {
   text-align: center;
-  font-size: 3.5em;
+  font-size: 5em;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  main > h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 480px) {
+  main > h1 {
+    font-size: 2.5em;
+  }
 }
