@@ -351,6 +351,6 @@ For security concerns or questions:
 
 ---
 
-**Last Updated**: January 2024  
+**Last Updated**: January 2025  
 **Security Review**: Passed internal review  
 **Compliance**: Follows PowerShell security best practices

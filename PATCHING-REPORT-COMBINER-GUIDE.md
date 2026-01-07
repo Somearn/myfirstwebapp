@@ -160,5 +160,5 @@ For issues or questions:
 ---
 
 **Version**: 1.0  
-**Last Updated**: January 2024  
+**Last Updated**: January 2025  
 **Compatible With**: Windows PowerShell 5.1+, Windows 10/11
