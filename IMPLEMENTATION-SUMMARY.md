@@ -14,7 +14,7 @@ This implementation successfully delivers all features requested in the problem 
 5. **Safe Execution** - No file deletion, no wrong file gathering
 6. **Folder Selection** - Manual folder selection each time for safety
 7. **Output File** - Creates "Patching Report Export.csv"
-8. **Append Mode** - Never overwrites, always appends to existing report
+8. **Append Mode** - Loads existing report, merges and deduplicates with new data, then rewrites the CSV
 
 #### User Interface ✅
 1. **Star Trek Theme** - Dark glass LCARS-inspired futuristic design
