@@ -11,7 +11,7 @@ The Patching Report Combiner is a PowerShell script with a Star Trek-inspired Wi
 - **Duplicate Removal**: Automatically removes duplicate entries based on Server + KB combination
 - **Latest Entry Priority**: When duplicates are found, keeps only the most recent entry
 - **Column Preservation**: Maintains the format and headers for columns 1-10
-- **Append Mode**: Never overwrites the output file - always appends new data
+- **Safe Output Refresh**: Rewrites the combined report after deduplication instead of appending, while preserving all unique records from previous runs
 - **No File Deletion**: Source CSV files are never modified or deleted
 
 ### 🎨 Star Trek Dark Glass Theme UI
