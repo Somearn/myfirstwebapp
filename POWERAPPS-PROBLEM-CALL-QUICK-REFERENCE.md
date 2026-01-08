@@ -223,8 +223,8 @@ Height: 200
 ## Support Resources
 
 - **Full Documentation**: See POWERAPPS-PROBLEM-CALL-SCREEN-GUIDE.md
-- **PowerApps Help**: https://docs.microsoft.com/powerapps
-- **Office 365 Connector**: https://docs.microsoft.com/connectors/office365
+- **PowerApps Help**: https://learn.microsoft.com/powerapps
+- **Office 365 Connector**: https://learn.microsoft.com/connectors/office365
 - **IT Helpdesk**: [Your organization's support contact]
 
 ---

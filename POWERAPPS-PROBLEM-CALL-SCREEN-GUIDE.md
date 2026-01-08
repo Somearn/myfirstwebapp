@@ -594,9 +594,9 @@ Dropdown: ddRecurrencePattern ["Daily", "Weekly", "Bi-weekly"]
 ## Support and Resources
 
 ### Microsoft Documentation
-- [PowerApps Canvas Apps Documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/)
-- [Office 365 Outlook Connector Reference](https://docs.microsoft.com/connectors/office365/)
-- [Microsoft Teams Connector Reference](https://docs.microsoft.com/connectors/teams/)
+- [PowerApps Canvas Apps Documentation](https://learn.microsoft.com/powerapps/maker/canvas-apps/)
+- [Office 365 Outlook Connector Reference](https://learn.microsoft.com/connectors/office365/)
+- [Microsoft Teams Connector Reference](https://learn.microsoft.com/connectors/teams/)
 
 ### Internal Resources
 - IT Helpdesk: [Contact Info]
