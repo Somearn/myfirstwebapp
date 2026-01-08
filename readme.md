@@ -40,3 +40,28 @@ A professional PowerShell script with a Star Trek-inspired UI for combining CSV 
 - Windows PowerShell 5.1 or later
 - Windows 10/11
 - No administrator privileges required
+
+### PowerApps Tools
+
+#### 📧 Problem Call Screen - Teams Meeting Invites
+
+A comprehensive guide for building a PowerApps screen to manage problem call meetings with Microsoft Teams integration.
+
+**Features**:
+- 📨 Send Teams meeting invites from dedicated mailbox (ISProblemcalls@brownhealth.org)
+- 👥 Required To field with multiple recipient support
+- 📋 Copy meeting notes to clipboard
+- 🔄 Reconvene feature to reschedule meetings
+- 📅 Date/time picker with duration selection
+- ✉️ HTML-formatted professional emails
+- 🛡️ Built-in validation and error handling
+
+**Documentation**:
+- [Quick Reference](POWERAPPS-PROBLEM-CALL-QUICK-REFERENCE.md) - Get started in 30 minutes
+- [Full Implementation Guide](POWERAPPS-PROBLEM-CALL-SCREEN-GUIDE.md) - Complete step-by-step instructions
+
+**Requirements**:
+- PowerApps license (per-user or per-app)
+- Microsoft 365 with Teams enabled
+- Access to shared mailbox: ISProblemcalls@brownhealth.org
+- "Send As" permissions configured
